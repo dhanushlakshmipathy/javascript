@@ -22,3 +22,5 @@ console.log(newString);
 
 const anotherString=gameName.slice(0,3); 
 console.log(anotherString); 
+
+console.log(gameName.replace('PUBG','COD')); 

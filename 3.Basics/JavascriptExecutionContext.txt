@@ -1,0 +1,30 @@
+HOW CODE RUNS IN JS.
+--------------------------------------------------
+Java script Execution Context
+
+---> Global Execution Context {} created.
+--->Function Execution Context. 
+---->Eval Execution Context. 
+
+the code runs in two phases.
+--->first is Memory Creation Phase. 
+--->secong  is Execution Phase.
+
+-----example code------
+let val1=10;
+let val2=20;
+function addnum(num1,num2){
+    let total=num1+num2;
+    return total
+}
+let result1=addNum(val1,val2);
+let result2=addNum(10,2);
+==============================
+1---->Global Execution---->this.
+2---->Memory Phase (val1-->undefined,val2--->undefine,addnum--->defination,result1====>undefined,result2-->undefined)
+3---->Execution Phase
+    (val1<----10
+     val2----5)
+     addNum---->[CREATES A NEW VARIABLE ENVIRONMENT+eXECUTION THREAD](Everytime the function is called.)
+        |
+         ----->again in this the same memory phase and execution phase happens, so this happens until all the functions are completed and stuffs.

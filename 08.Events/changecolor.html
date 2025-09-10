@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color changing</title>
+</head>
+<body>
+    <h1>Start should change the color every second until you press stop</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop It</button>
+
+    <script>
+        // Function to generate a random hex color
+        const randomColor = function() {
+            const hex = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        let intervalId; // global so both functions can use it
+
+        // Start function
+        const startChangingColor = function() {
+            if (!intervalId) { // prevents multiple intervals
+                intervalId = setInterval(() => {
+                    document.body.style.backgroundColor = randomColor();
+                }, 1000);
+            }
+        };
+
+        // Stop function
+        const stopChangingColor = function() {
+            clearInterval(intervalId);
+            intervalId = null; // reset so Start can work again
+        };
+
+        // Attach event listeners
+        document.querySelector('#start').addEventListener('click', startChangingColor);
+        document.querySelector('#stop').addEventListener('click', stopChangingColor);
+    </script>
+</body>
+</html>

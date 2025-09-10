@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<style>
+    img{
+        width: auto;
+        height: auto;
+    }
+</style>
+<body>
+    <h2>Amazing Image</h2>
+    <ul id="images">
+        <li><img id="sm" src="spider-man.jpg" alt="spider-man"></li>
+        <li><img id="super" src="superman.jpeg" alt="superman" ></li>
+        <li><img id="bat" src="batman.jpg" alt="batman"></li>
+        <li><img id="cap" src="captainamerica.jpg" alt="captainamerica"></li>
+    </ul>
+</body>
+<script>
+     //attachEvent()
+    //jQuery-on
+    //javascript is sequential, it runs sequentially. 
+    // document.getElementById('sm').addEventListener('click',function(){
+    //     alert("you clicked on spiderman")
+    // },false)
+    // document.getElementById('super').addEventListener('click',function(){
+    //     alert("you clicked on superman")
+    // },false)
+    // document.getElementById('bat').addEventListener('click',function(){
+    //     alert("you clicked on batman")
+    // },false)
+    // document.getElementById('cap').addEventListener('click',function(){
+    //     alert("you clicked on captainamerica")
+    // },false)
+
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log("clicked inside the ul");
+        // },false);
+        // //type, timestamp, defaultPrevented, srcElement, currentTarget,
+        // //clientX, clientY, screenX, screenY
+        // //altkey, ctrlkey,shiftkey,keyCode.
+        // document.getElementById('sm').addEventListener('click',function(e){
+        //     console.log("clicked on spider-man");
+        //     e.stopPropagation();
+        // },true);
+        // //the true and false thing is called event propogation, this is kind of when two things are interlinked and supposedly the same thing happens when u do both, this helps u to set which comes first. 
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e);
+        console.log(e.target.parentNode.tagName);
+        if(e.target.tagName==='IMG'){
+              let removeIt=e.target.parentNode;
+                removeIt.remove();
+        }   
+    },false)
+</script>
+</html>
